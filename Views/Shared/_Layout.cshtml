@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Dare 11  Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Dare 11 is to register practice session in your location" />
+    <meta name="keywords" content="Dare 11 " />
+    <meta name="author" content="SatyamTech" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <!-- waves.css -->
+    <link rel="stylesheet" href="/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- waves.css -->
+    <link rel="stylesheet" href="/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+    <!-- themify icon -->
+    <link rel="stylesheet" type="text/css" href="/assets/icon/themify-icons/themify-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="/assets/icon/font-awesome/css/font-awesome.min.css">
+    <!-- scrollbar.css -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/jquery.mCustomScrollbar.css">
+    <!-- am chart export.css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+</head>
+
+<body>
+
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
+                            <i class="ti-menu"></i>
+                        </a>
+                        <div class="mobile-search waves-effect waves-light">
+                            <div class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" placeholder="Enter Keyword">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="index.html">
+                            Dare 11
+                        </a>
+
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li>
+                                <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                            </li>
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+                                    <i class="ti-fullscreen"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        @*<ul class="nav-right">
+                                <li class="header-notification">
+
+                                    <ul class="show-notification profile-notification">
+
+                                        <li class="waves-effect waves-light">
+                                            <a href="profile.html">
+                                                <i class="ti-user"></i> Profile
+                                            </a>
+                                        </li>
+                                        <li class="waves-effect waves-light">
+                                            <a href="auth-normal-sign-in.html">
+                                                <i class="ti-layout-sidebar-left"></i> Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                <li class="user-profile header-notification">
+                                    <a href="#!" class="waves-effect waves-light">
+                                        <img src="/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                        <span>John Doe</span>
+                                        <i class="ti-angle-down"></i>
+                                    </a>
+                                    <ul class="show-notification profile-notification">
+
+                                        <li class="waves-effect waves-light">
+                                            <a href="profile.html">
+                                                <i class="ti-user"></i> Profile
+                                            </a>
+                                        </li>
+
+                                        <li class="waves-effect waves-light">
+                                            <a href="auth-normal-sign-in.html">
+                                                <i class="ti-layout-sidebar-left"></i> Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>*@
+                    </div>
+                </div>
+            </nav>
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="">
+                                @*<div class="main-menu-header">
+                                        <img class="img-80 img-radius" src="/assets/images/avatar-4.jpg" alt="User-Profile-Image">
+                                        <div class="user-details">
+                                            <span id="more-details">John Doe<i class="fa fa-caret-down"></i></span>
+                                        </div>
+                                    </div>*@
+
+                                <div class="main-menu-content">
+                                    <ul>
+                                        <li class="more-details">
+                                            <a href="profile.html"><i class="ti-user"></i>View Profile</a>
+                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Dashboard</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="active">
+                                    <a href="/locations/Index/" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li>
+                                    <a href="/locations/Index/" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-ticket"></i><b></b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Location</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/venues/Index/" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-ticket"></i><b></b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Venues</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Tournment/Create/" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-ticket"></i><b></b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Tournments</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Bookings.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-ticket"></i><b></b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Schedule</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Bookings.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-ticket"></i><b></b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Users</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="Bookings.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-ticket"></i><b></b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">ScoreBoard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="cancelled_bookings.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-face-sad"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Cancelled Bookings</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="feedback.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-help-alt"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Feedback</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+
+
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <!-- Page-header start -->
+                        <div class="page-header">
+                            <div class="page-block">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <div class="page-header-title">
+
+                                            <p class="m-b-0">Welcome to Dare 11</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Page-header end -->
+                        <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-body start -->
+                                    <div class="page-body ">
+
+                                        @RenderBody()
+
+
+                                    </div>
+                                </div>
+
+                                <!--  project and team member end -->
+                            </div>
+                        </div>
+                        <!-- Page-body end -->
+                    </div>
+                    <div id="styleSelector"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/assets/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-ui/jquery-ui.min.js "></script>
+    <script type="text/javascript" src="/assets/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap/js/bootstrap.min.js "></script>
+    <script type="text/javascript" src="/assets/pages/widget/excanvas.js "></script>
+    <!-- waves js -->
+    <script src="/assets/pages/waves/js/waves.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="/assets/js/jquery-slimscroll/jquery.slimscroll.js "></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="/assets/js/modernizr/modernizr.js "></script>
+    <!-- slimscroll js -->
+    <script type="text/javascript" src="/assets/js/SmoothScroll.js"></script>
+    <script src="/assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
+    <!-- Chart js -->
+    <script type="text/javascript" src="/assets/js/chart.js/Chart.js"></script>
+    <!-- amchart js -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="/assets/pages/widget/amchart/gauge.js"></script>
+    <script src="/assets/pages/widget/amchart/serial.js"></script>
+    <script src="/assets/pages/widget/amchart/light.js"></script>
+    <script src="/assets/pages/widget/amchart/pie.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <!-- menu js -->
+    <script src="/assets/js/pcoded.min.js"></script>
+    <script src="/assets/js/vertical-layout.min.js "></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="/assets/pages/dashboard/custom-dashboard.js"></script>
+    <script type="text/javascript" src="/assets/js/script.js "></script>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
