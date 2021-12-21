@@ -17,7 +17,8 @@ namespace CricketBooking.Controllers
         // GET: Tournment
         public ActionResult Index()
         {
-            return View();
+            var result = objDB.TournmentsGet();
+            return View(result);
         }
 
         // GET: Tournment/Details/5
@@ -41,13 +42,27 @@ namespace CricketBooking.Controllers
 
         // POST: Tournment/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Tournments objTournmets)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid) //checking model is valid or not    
+                {
+                    DataAcess objDB = new DataAcess();
+                    objTournmets.iCreatedby = 1;
+                    string result = objDB.TournmetInsDat(objTournmets);
+                    //ViewData["result"] = result;    
+                    TempData["result1"] = result;
+                    ModelState.Clear(); //clearing model    
+                                        //return View();    
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+                else
+                {
+                    ModelState.AddModelError("", "Error in saving data");
+                    return View();
+                }
             }
             catch
             {

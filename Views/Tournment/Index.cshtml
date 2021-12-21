@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CricketBooking.Models.Tournments>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table bg-white">
+    <tr class="text-white bg-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.sTname)
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            Venue
+        </th>
+        <th>
+            Overs
+        </th>
+        <th>
+            Fee
+        </th>
+        <th></th>
+    </tr>
+
+   
+        @foreach (var item in Model)
+        {
+<tr>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.sTname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.slname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.svname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.iOvers)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dFee)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+        }
+   
+</table>

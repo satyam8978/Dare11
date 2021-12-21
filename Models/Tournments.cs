@@ -27,18 +27,15 @@ namespace CricketBooking.Models
         [Display(Name = "Overs")]
         [Required(ErrorMessage = "Please Enter Overs")]
         public int iOvers { set; get; }
-        [Display(Name = "FromDate")]
-        [Required(ErrorMessage = "Please Enter From Date")]
-        public DateTime dFdate { set; get; }
-        [Display(Name = "ToDae")]
-        [Required(ErrorMessage = "Please Enter ToDate")]
-        public DateTime dTdate { set; get; }
-        
+        [Display(Name = "Fee")]
+        [Required(ErrorMessage = "Please Enter fee")]
+        public decimal dFee { set; get; }
         public int iCreatedby { set; get; }
         [NotMapped]
         public SelectList locationList { get; set; }
         public SelectList lVenueist { get; set; }
-
+        public string slname { get; set; }
+        public string svname { get; set; }
 
     }
 }

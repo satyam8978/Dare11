@@ -17,6 +17,7 @@ namespace CricketBooking.Data
     public class DataAcess
     {
         public SqlConnection sConn = new SqlConnection(ConfigurationManager.ConnectionStrings["CricketBookingContext"].ConnectionString);
+        #region Venue
         public string InsertData(venue objvenue)
         {
             string result = "";
@@ -282,5 +283,164 @@ namespace CricketBooking.Data
             }
             return items;
         }
+        #endregion venue
+        #region Tournment
+        public string TournmetInsDat(Tournments objTournment)
+        {
+            string result = "";
+            try
+            {
+                if (sConn.State == ConnectionState.Open)
+                {
+                    sConn.Close();
+                }
+                sConn.Open();
+                SqlCommand cmd = new SqlCommand("Sp_TournmentIns", sConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@CustomerID", 0);    
+                cmd.Parameters.AddWithValue("@Tname", objTournment.sTname);
+                cmd.Parameters.AddWithValue("@lid", objTournment.iLid);
+                cmd.Parameters.AddWithValue("@vid", objTournment.iVid);
+                cmd.Parameters.AddWithValue("@overs", objTournment.iOvers);
+                cmd.Parameters.AddWithValue("@fee", objTournment.dFee);
+                cmd.Parameters.AddWithValue("@createdby", objTournment.iCreatedby);
+
+                cmd.ExecuteNonQuery();
+                result = "Sucess";
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result = "Failed";
+            }
+            finally
+            {
+                sConn.Close();
+            }
+        }
+        public List<Tournments> TournmentsGet()
+        {
+            List<Tournments> tournmentsList = new List<Tournments>();
+            try
+            {
+
+                if (sConn.State == ConnectionState.Open)
+                {
+                    sConn.Close();
+                }
+                sConn.Open();
+                SqlCommand cmd = new SqlCommand("Sp_TournmentsGet", sConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataSet ds = null;
+                da.SelectCommand = cmd;
+                ds = new DataSet();
+                da.Fill(ds);
+               
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    Tournments objtournmets = new Tournments();
+                    objtournmets.sTname = ds.Tables[0].Rows[i]["Tname"].ToString();
+                    objtournmets.slname = ds.Tables[0].Rows[i]["slname"].ToString();
+                    objtournmets.svname = ds.Tables[0].Rows[i]["svname"].ToString();
+                    objtournmets.iOvers = Convert.ToInt32( ds.Tables[0].Rows[i]["Overs"].ToString());
+                    objtournmets.dFee = Convert.ToDecimal(ds.Tables[0].Rows[i]["Fee"].ToString());
+                    tournmentsList.Add(objtournmets);
+                }
+                return tournmentsList;
+            }
+            catch (Exception ex)
+            {
+                return tournmentsList;
+            }
+            finally
+            {
+                sConn.Close();
+
+            }
+
+
+        }
+
+        public List<SelectListItem> GetTournmentsByVId(int iVid)
+        {
+
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            try
+            {
+                if (sConn.State == ConnectionState.Open)
+                {
+                    sConn.Close();
+                }
+                sConn.Open();
+                SqlCommand cmd = new SqlCommand("Sp_tournmentsgetbyvid", sConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@vid", iVid);
+
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        items.Add(new SelectListItem
+                        {
+                            Text = sdr["Tname"].ToString(),
+                            Value = sdr["id"].ToString()
+                        });
+                    }
+
+
+                }
+            }
+            catch
+            {
+
+
+            }
+            finally
+            {
+
+                sConn.Close();
+
+            }
+            return items;
+        }
+        #endregion Tournment
+        #region Scheduler
+        public string SchdulerInsDat(Scheduler objScheduler)
+        {
+            string result = "";
+            try
+            {
+                if (sConn.State == ConnectionState.Open)
+                {
+                    sConn.Close();
+                }
+                sConn.Open();
+                SqlCommand cmd = new SqlCommand("Sp_tbl_ScheduleIns", sConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@CustomerID", 0);    
+                cmd.Parameters.AddWithValue("@Lid", objScheduler.iLid);
+                cmd.Parameters.AddWithValue("@Vid", objScheduler.iVid);
+                cmd.Parameters.AddWithValue("@Tid", objScheduler.iTid);
+                cmd.Parameters.AddWithValue("@SDate", objScheduler.dSdate.ToShortDateString());
+                cmd.Parameters.AddWithValue("@FTime", objScheduler.dFtime.ToString("HH:mm"));
+                cmd.Parameters.AddWithValue("@TTime", objScheduler.dTtime.ToString("HH:mm"));
+                cmd.Parameters.AddWithValue("@CretedBy", objScheduler.iCreatedby);
+
+                cmd.ExecuteNonQuery();
+                result = "Sucess";
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result = "Failed";
+            }
+            finally
+            {
+                sConn.Close();
+            }
+        }
+        #endregion Scheduler
     }
 }
